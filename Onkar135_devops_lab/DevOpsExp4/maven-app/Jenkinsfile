@@ -1,0 +1,19 @@
+pipeline {
+    agent none
+    stages {
+        stage('Build on Agent 1') {
+            agent { label 'agent1' }
+            steps {
+                echo "Building on Agent 1"
+                sh 'mvn clean install'
+            }
+        }
+        stage('Test on Agent 2') {
+            agent { label 'agent2' }
+            steps {
+                echo "Testing on Agent 2"
+                sh 'mvn test'
+            }
+        }
+    }
+}
