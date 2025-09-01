@@ -2,11 +2,11 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-# Install Docker inside Jenkins container
+# Install Docker CLI
 RUN apt-get update && apt-get install -y docker.io
 
-# Allow Jenkins user to access Docker
-RUN usermod -aG docker jenkins
+# Create docker group if it doesn't exist and add jenkins
+RUN groupadd -f docker \
+    && usermod -aG docker jenkins
 
 USER jenkins
-
