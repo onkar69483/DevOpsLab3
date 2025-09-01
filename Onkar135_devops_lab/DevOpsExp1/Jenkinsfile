@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourusername/your-sample-repo.git'
+                git 'https://github.com/onkar69483/DevOpsLab3.git'
             }
         }
 
