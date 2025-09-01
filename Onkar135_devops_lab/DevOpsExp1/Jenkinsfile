@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t simple-app ./Onkar135_devops_lab/DevOpsExp1/simple-app'
+                sh 'docker build -t simple-app ./Onkar135_devops_lab/DevOpsExp1/simple-app'
             }
         }
 
         stage('Run App Container') {
             steps {
-                bat 'docker run --rm simple-app'
+                sh 'docker run --rm simple-app'
             }
         }
     }
