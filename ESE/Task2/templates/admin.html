@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Admin Panel</h1>
+    <div class="admin-content">
+        <h2>User Management</h2>
+        <div class="users-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Admin Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{% if user.is_admin %}Admin{% else %}User{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <nav class="admin-nav">
+            <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+            <a href="{{ url_for('home') }}" class="btn">Home</a>
+        </nav>
+    </div>
+</div>
+{% endblock %}

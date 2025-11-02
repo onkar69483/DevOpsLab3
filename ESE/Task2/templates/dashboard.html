@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <div class="dashboard-content">
+        <div class="user-info">
+            <h2>Your Profile</h2>
+            <p><strong>Username:</strong> {{ current_user.username }}</p>
+            <p><strong>Email:</strong> {{ current_user.email }}</p>
+            <p><strong>Account Type:</strong> {% if current_user.is_admin %}Admin{% else %}User{% endif %}</p>
+        </div>
+        <nav class="dashboard-nav">
+            {% if current_user.is_admin %}
+                <a href="{{ url_for('admin') }}" class="btn btn-admin">Admin Panel</a>
+            {% endif %}
+            <a href="{{ url_for('home') }}" class="btn">Home</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </nav>
+    </div>
+</div>
+{% endblock %}

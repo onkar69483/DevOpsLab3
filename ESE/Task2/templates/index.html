@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to the Demo App</h1>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Demo App</h1>
     <nav>
-        <a href="/login">Login</a>
-        <a href="/signup">Sign Up</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('dashboard') }}" class="btn">Dashboard</a>
+            {% if current_user.is_admin %}
+                <a href="{{ url_for('admin') }}" class="btn btn-admin">Admin Panel</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+        {% endif %}
     </nav>
-</body>
-</html>
+</div>
+{% endblock %}
