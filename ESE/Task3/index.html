@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Kubernetes Webpage 🚀</title>
+    <style>
+      /* Reset default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3rem;
+        background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        animation: fadeIn 1.2s ease-in-out;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1.4s ease-in-out;
+      }
+
+      .k8s-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem 3rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .k8s-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="k8s-card">
+      <h1>🚀 Hello from Kubernetes!</h1>
+      <p>
+        This sleek page is powered by Nginx running inside a Kubernetes Pod.<br />
+        You're witnessing containerized beauty at its finest 💙
+      </p>
+    </div>
+    <footer>
+      Crafted with ❤️ & powered by <strong>Kubernetes</strong> + <strong>Nginx</strong>
+    </footer>
+  </body>
+</html>
