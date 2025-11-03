@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/onkar69483/DevOpsLab3.git', branch: 'main'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                dir('ESE/Task1') {
+                    bat 'docker build -t hello-devops .'
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                dir('ESE/Task1') {
+                    bat 'docker rm -f hello-devops || true'
+                    bat 'docker run -d -p 5000:5000 --name hello-devops hello-devops'
+                }
+            }
+        }
+    }
+}
